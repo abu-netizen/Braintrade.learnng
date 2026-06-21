@@ -1,8 +1,19 @@
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOEMtndXzP2l4X_zCfzv-_1iMli2zTvAj-kLyplJ2YCtvt7d-pnecqvmwkC9wTa-8x/exec";
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxOEMtndXzP2l4X_zCfzv-_1iMli2zTvAj-kLyplJ2YCtvt7d-pnecqvmwkC9wTa-8x/exec";
 
 const leadForm = document.getElementById("leadForm");
 const successMessage = document.getElementById("successMessage");
 const errorMessage = document.getElementById("errorMessage");
+const bookImage = document.getElementById("bookImage");
+
+// If the image path is wrong, try root fallback.
+if (bookImage) {
+  bookImage.onerror = function () {
+    if (bookImage.src.includes("assets/guide-cover.png")) {
+      bookImage.src = "guide-cover.png";
+    }
+  };
+}
 
 if (leadForm) {
   leadForm.addEventListener("submit", async function (event) {
@@ -13,7 +24,7 @@ if (leadForm) {
 
     const formData = new FormData(leadForm);
 
-    // Hidden anti-spam field
+    // Hidden anti-spam field.
     if (formData.get("website")) {
       return;
     }
