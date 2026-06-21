@@ -1,656 +1,221 @@
 <!DOCTYPE html>
-
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Trading för nybörjare | Gratis guide</title>
-  <meta name="description" content="Ladda ner en gratis svensk guide för trading och investeringar." />
+  <title>Brain Trade | Gratis guide</title>
+  <meta name="description" content="Ladda ner Brain Trades kostnadsfria guide för nya traders." />
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #101010;
-      background: #ffffff;
-    }
-
-    .hero {
-      min-height: 650px;
-      background: #f1f1f1;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-shape {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.62);
-      pointer-events: none;
-    }
-
-    .hero-shape-left {
-      width: 600px;
-      height: 380px;
-      left: -150px;
-      bottom: -200px;
-      border-radius: 50%;
-    }
-
-    .hero-shape-right {
-      width: 460px;
-      height: 280px;
-      right: -55px;
-      top: -15px;
-      border-radius: 0 0 0 100%;
-    }
-
-    .hero-inner {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-copy {
-      text-align: center;
-      justify-self: center;
-      max-width: 620px;
-    }
-
-    .hero-copy h1 {
-      margin: 0 0 30px;
-      font-size: clamp(3.1rem, 6vw, 4.9rem);
-      line-height: 1.03;
-      letter-spacing: -2.35px;
-      font-weight: 900;
-      color: #050505;
-    }
-
-    .hero-copy p {
-      margin: 0 auto 34px;
-      max-width: 560px;
-      color: #151515;
-      font-size: 1.17rem;
-      line-height: 1.5;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 335px;
-      min-height: 68px;
-      padding: 18px 34px;
-      border-radius: 999px;
-      border: 0;
-      background: #087a43;
-      color: #ffffff;
-      font-weight: 900;
-      font-size: 1rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      letter-spacing: 0.2px;
-      cursor: pointer;
-    }
-
-    .hero-book {
-      display: grid;
-      place-items: center;
-      position: relative;
-    }
-
-    .hero-book::before {
-      content: "";
-      position: absolute;
-      width: 265px;
-      height: 265px;
-      right: 54px;
-      bottom: 28px;
-      border-radius: 50%;
-      background: radial-gradient(
-        circle,
-        rgba(0, 0, 0, 0.18),
-        rgba(0, 0, 0, 0.06) 48%,
-        rgba(0, 0, 0, 0) 72%
-      );
-      filter: blur(12px);
-    }
-
-    .hero-book img {
-      position: relative;
-      z-index: 1;
-      width: min(345px, 100%);
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.22));
-    }
-
-    .steps {
-      padding: 84px 24px 96px;
-      background: #ffffff;
-    }
-
-    .section-heading {
-      width: min(820px, 100%);
-      margin: 0 auto 44px;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      margin: 0 0 16px;
-      font-size: clamp(2.05rem, 4vw, 3.35rem);
-      line-height: 1.07;
-      letter-spacing: -1.3px;
-      color: #101010;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: #5c6870;
-      font-size: 1.12rem;
-      line-height: 1.55;
-    }
-
-    .step-grid {
-      width: min(1080px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .step-card {
-      background: #f7faf7;
-      border: 1px solid #e2ebe3;
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.05);
-    }
-
-    .icon {
-      display: grid;
-      place-items: center;
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 18px;
-      border-radius: 20px;
-      background: #ffffff;
-      font-size: 2rem;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
-    }
-
-    .step-card h3 {
-      margin: 0 0 10px;
-      color: #111111;
-      font-size: 1.22rem;
-    }
-
-    .step-card p {
-      margin: 0;
-      color: #627079;
-      line-height: 1.55;
-    }
-
-    .center {
-      text-align: center;
-      margin-top: 42px;
-    }
-
-    .download {
-      padding: 76px 24px 100px;
-      background: #f4f8f5;
-    }
-
-    .download-inner {
-      width: min(1080px, 100%);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 34px;
-      align-items: center;
-      background: #ffffff;
-      border-radius: 34px;
-      padding: 44px;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.14);
-    }
-
-    .stars {
-      margin: 0 0 14px;
-      color: #f5b81f;
-      font-weight: 900;
-    }
-
-    .download-copy h2 {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 4vw, 3.15rem);
-      line-height: 1.08;
-      letter-spacing: -1.1px;
-    }
-
-    .download-copy p {
-      margin: 0;
-      color: #5c6870;
-      font-size: 1.04rem;
-      line-height: 1.6;
-    }
-
-    .small-book {
-      width: 190px;
-      height: auto;
-      margin-top: 22px;
-      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.16));
-    }
-
-    .lead-form {
-      background: #f7faf7;
-      border: 1px solid #e1e9e2;
-      border-radius: 26px;
-      padding: 28px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 14px;
-      color: #1c3022;
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    input,
-    select {
-      width: 100%;
-      margin-top: 7px;
-      border: 1px solid #d7e1d8;
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 14px 15px;
-      font: inherit;
-      outline: none;
-    }
-
-    input:focus,
-    select:focus {
-      border-color: #087a43;
-      box-shadow: 0 0 0 4px rgba(8, 122, 67, 0.12);
-    }
-
-    .checkbox-label {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-weight: 600;
-      color: #333333;
-    }
-
-    .checkbox-label input {
-      width: auto;
-      margin-top: 4px;
-    }
-
-    .honeypot {
-      position: absolute;
-      left: -9999px;
-    }
-
-    .submit {
-      width: 100%;
-      margin-top: 4px;
-    }
-
-    .fine-print {
-      margin: 14px 0 0;
-      text-align: center;
-      color: #728078;
-      font-size: 0.8rem;
-    }
-
-    .success-message,
-    .error-message {
-      display: none;
-      margin: 16px 0 0;
-      text-align: center;
-      font-weight: 900;
-    }
-
-    .success-message.show {
-      display: block;
-      color: #087a43;
-    }
-
-    .error-message.show {
-      display: block;
-      color: #b42318;
-    }
-
-    footer {
-      padding: 28px;
-      text-align: center;
-      background: #081016;
-      color: #b8c6bd;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    @media (max-width: 920px) {
-      .hero {
-        padding: 58px 0;
-      }
-
-      .hero-inner,
-      .download-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .download-copy {
-        display: grid;
-        justify-items: center;
-      }
-
-      .step-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-book {
-        margin-top: 16px;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .hero-inner {
-        width: min(100% - 32px, 1120px);
-      }
-
-      .hero-copy h1 {
-        font-size: 2.72rem;
-        letter-spacing: -1.2px;
-      }
-
-      .hero-copy p {
-        font-size: 1rem;
-      }
-
-      .cta {
-        width: 100%;
-        min-width: 0;
-      }
-
-      .hero-book img {
-        width: min(290px, 92vw);
-      }
-
-      .steps,
-      .download {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-
-      .step-grid,
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .download-inner {
-        padding: 24px;
-        border-radius: 24px;
-      }
-
-      .lead-form {
-        padding: 22px;
-      }
-    }
-  </style>
-
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <main>
     <section class="hero" id="top">
-      <div class="hero-shape hero-shape-left"></div>
-      <div class="hero-shape hero-shape-right"></div>
+      <div class="shape shape-left"></div>
+      <div class="shape shape-right"></div>
 
-```
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <h1>Trading har äntligen<br />blivit enkelt</h1>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>Brain Trade har äntligen<br />blivit enkelt</h1>
+          <p>
+            Behärska principerna som 95% av nya traders aldrig lär sig,
+            så att du snabbt kan bygga en extra inkomstström.
+          </p>
+          <a href="#download" class="primary-btn">Ladda ner gratis guiden</a>
+        </div>
 
-      <p>
-        Behärska principerna som många nya traders aldrig lär sig,
-        så att du kan bygga en tydligare plan och komma igång på rätt sätt.
-      </p>
+        <div class="hero-visual">
+          <img src="assets/guide-cover.png" alt="Brain Trade guidebok" />
+        </div>
+      </div>
+    </section>
 
-      <a class="cta" href="#lead-form">
-        Ladda ner gratis guiden
-      </a>
-    </div>
+    <section class="guide-steps">
+      <div class="heading">
+        <h2>Praktiska steg och exempel för framgångsrik trading</h2>
+        <p>Följ 13 enkla steg i guiden för att lyckas med din första investering:</p>
+      </div>
 
-    <div class="hero-book">
-      <img src="assets/guide-cover.png" alt="Handel för nybörjare guidebok" />
-    </div>
-  </div>
-</section>
+      <div class="feature-grid">
+        <article class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="28"/><path d="M20 33l20-14 22 13-7 25-28 5-7-29z"/><circle cx="20" cy="33" r="4"/><circle cx="40" cy="19" r="4"/><circle cx="62" cy="32" r="4"/><circle cx="55" cy="57" r="4"/><circle cx="27" cy="62" r="4"/><path d="M20 33l35 24M40 19l-13 43M62 32L27 62M40 19l15 38"/></svg></div>
+          <h3>Hur fungerar<br />börsen</h3>
+        </article>
 
-<section class="steps">
-  <div class="section-heading">
-    <h2>Praktiska steg och exempel för framgångsrik trading</h2>
-    <p>
-      Följ enkla steg i guiden för att förstå marknaden, riskhantering
-      och hur du gör din första investering mer strukturerad.
-    </p>
-  </div>
+        <article class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M18 56h42M15 64h48M21 48h35"/><path d="M34 48V27l8-10 8 10v21"/><path d="M31 27h22l-5-10H36l-5 10z"/><path d="M54 34h12v22H54"/><path d="M58 40h8"/><path d="M42 32c-5 0-7 3-7 6 0 4 4 5 7 6 4 1 7 2 7 6 0 3-3 6-7 6s-7-3-7-6"/><path d="M42 27v34"/></svg></div>
+          <h3>6 sätt att investera pengar</h3>
+        </article>
 
-  <div class="step-grid">
-    <article class="step-card">
-      <span class="icon">📈</span>
-      <h3>Hur fungerar börsen</h3>
-      <p>Förstå grunderna bakom prisrörelser, aktier, index och hur marknaden fungerar.</p>
-    </article>
+        <article class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="28"/><path d="M40 12v28h28"/><path d="M68 40a28 28 0 0 1-8 20L40 40"/><path d="M60 60a28 28 0 0 1-20 8V40"/><path d="M40 12a28 28 0 0 1 28 28"/></svg></div>
+          <h3>Läsa finansiella rapporter</h3>
+        </article>
 
-    <article class="step-card">
-      <span class="icon">💰</span>
-      <h3>Börja med en liten insats</h3>
-      <p>Lär dig varför det är klokt att börja försiktigt och utveckla en plan innan du ökar risken.</p>
-    </article>
+        <article class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="42" r="27"/><circle cx="40" cy="42" r="17"/><circle cx="40" cy="42" r="7"/><path d="M40 42l22-22"/><path d="M56 20h14l-7 7v14"/></svg></div>
+          <h3>Börja med en liten insats</h3>
+        </article>
 
-    <article class="step-card">
-      <span class="icon">🧭</span>
-      <h3>6 sätt att investera pengar</h3>
-      <p>Jämför olika vägar in på marknaden och välj en metod som passar dina mål.</p>
-    </article>
+        <article class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M40 16v48"/><path d="M24 64h32"/><path d="M32 72h16"/><path d="M18 26h44"/><path d="M22 26l-10 24h20L22 26z"/><path d="M58 26l-10 24h20L58 26z"/><path d="M12 50c2 6 18 6 20 0M48 50c2 6 18 6 20 0"/><circle cx="40" cy="16" r="4"/></svg></div>
+          <h3>Skydda mot förluster</h3>
+        </article>
 
-    <article class="step-card">
-      <span class="icon">🛡️</span>
-      <h3>Skydda mot förluster</h3>
-      <p>Skapa regler för risk, positioner och stop loss så att kapitalet skyddas bättre.</p>
-    </article>
+        <article class="feature-item">
+          <div class="feature-icon"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M25 44l-9-9 12-12 9 9"/><path d="M55 44l9-9-12-12-9 9"/><path d="M31 36l9-8 9 8"/><path d="M29 42l18 18c4 4 11-1 7-6"/><path d="M38 51l9 9c4 4 10-1 6-5"/><path d="M47 35l8 8"/><path d="M25 44l7 7M55 44l-7 7"/><path d="M34 58l-5-5M43 63l-5-5"/></svg></div>
+          <h3>Ta ut vinster</h3>
+        </article>
+      </div>
 
-    <article class="step-card">
-      <span class="icon">📊</span>
-      <h3>Läsa finansiella rapporter</h3>
-      <p>Se vilka siffror som spelar roll och hur rapporter kan hjälpa dig fatta bättre beslut.</p>
-    </article>
+      <div class="center">
+        <a href="#download" class="primary-btn">Ladda ner gratis guiden</a>
+      </div>
+    </section>
 
-    <article class="step-card">
-      <span class="icon">🏦</span>
-      <h3>Ta ut vinster</h3>
-      <p>Planera när du ska sälja, säkra vinster och undvika vanliga nybörjarmisstag.</p>
-    </article>
-  </div>
+    <section class="download" id="download">
+      <div class="download-card">
+        <div class="download-info">
+          <p class="rating">⭐ Mer än 10 000 nedladdningar ⭐</p>
+          <h2>Ladda ner din kostnadsfria guide</h2>
+          <p>
+            Boken <strong>BRAIN TRADE FÖR NYBÖRJARE</strong> kommer att vidga dina vyer
+            och inspirera dig att ge dig in i det spännande spelet som är värdepappershandel.
+            Fyll i formuläret nedan och ladda ner ditt gratisexemplar.
+          </p>
+          <img src="assets/guide-cover.png" alt="Brain Trade guideomslag" class="mini-book" />
+        </div>
 
-  <div class="center">
-    <a class="cta" href="#lead-form">Ladda ner gratis guiden</a>
-  </div>
-</section>
-
-<section class="download" id="lead-form">
-  <div class="download-inner">
-    <div class="download-copy">
-      <p class="stars">⭐ Mer än 10 000 nedladdningar ⭐</p>
-
-      <h2>Ladda ner din kostnadsfria guide</h2>
-
-      <p>
-        Guiden <strong>Handel för nybörjare</strong> ger dig en lättläst introduktion
-        till trading, riskhantering och bättre beslutsrutiner.
-      </p>
-
-      <img src="assets/guide-cover.png" alt="Guideomslag" class="small-book" />
-    </div>
-
-    <form class="lead-form" id="leadForm">
-      <div class="form-row">
-        <label>
-          First Name
+        
+        <form class="lead-form screenshot-form" id="leadForm">
           <input type="text" name="firstName" placeholder="First Name" required />
-        </label>
-
-        <label>
-          Last Name
           <input type="text" name="lastName" placeholder="Last Name" required />
-        </label>
+          <input type="email" name="email" placeholder="E-mail address" required />
+
+          <div class="phone-line">
+            <select name="countryCode" required>
+                <option value="+46 Sweden" selected>+46 Sweden</option>
+                <option value="+91 India">+91 India</option>
+                <option value="+1 United States">+1 United States</option>
+                <option value="+44 United Kingdom">+44 United Kingdom</option>
+                <option value="+971 UAE">+971 UAE</option>
+                <option value="+93 Afghanistan">+93 Afghanistan</option>
+                <option value="+355 Albania">+355 Albania</option>
+                <option value="+213 Algeria">+213 Algeria</option>
+                <option value="+376 Andorra">+376 Andorra</option>
+                <option value="+244 Angola">+244 Angola</option>
+                <option value="+54 Argentina">+54 Argentina</option>
+                <option value="+374 Armenia">+374 Armenia</option>
+                <option value="+61 Australia">+61 Australia</option>
+                <option value="+43 Austria">+43 Austria</option>
+                <option value="+994 Azerbaijan">+994 Azerbaijan</option>
+                <option value="+973 Bahrain">+973 Bahrain</option>
+                <option value="+880 Bangladesh">+880 Bangladesh</option>
+                <option value="+375 Belarus">+375 Belarus</option>
+                <option value="+32 Belgium">+32 Belgium</option>
+                <option value="+501 Belize">+501 Belize</option>
+                <option value="+229 Benin">+229 Benin</option>
+                <option value="+975 Bhutan">+975 Bhutan</option>
+                <option value="+591 Bolivia">+591 Bolivia</option>
+                <option value="+387 Bosnia and Herzegovina">+387 Bosnia and Herzegovina</option>
+                <option value="+267 Botswana">+267 Botswana</option>
+                <option value="+55 Brazil">+55 Brazil</option>
+                <option value="+359 Bulgaria">+359 Bulgaria</option>
+                <option value="+855 Cambodia">+855 Cambodia</option>
+                <option value="+237 Cameroon">+237 Cameroon</option>
+                <option value="+1 Canada">+1 Canada</option>
+                <option value="+56 Chile">+56 Chile</option>
+                <option value="+86 China">+86 China</option>
+                <option value="+57 Colombia">+57 Colombia</option>
+                <option value="+506 Costa Rica">+506 Costa Rica</option>
+                <option value="+385 Croatia">+385 Croatia</option>
+                <option value="+357 Cyprus">+357 Cyprus</option>
+                <option value="+420 Czech Republic">+420 Czech Republic</option>
+                <option value="+45 Denmark">+45 Denmark</option>
+                <option value="+20 Egypt">+20 Egypt</option>
+                <option value="+372 Estonia">+372 Estonia</option>
+                <option value="+251 Ethiopia">+251 Ethiopia</option>
+                <option value="+358 Finland">+358 Finland</option>
+                <option value="+33 France">+33 France</option>
+                <option value="+995 Georgia">+995 Georgia</option>
+                <option value="+49 Germany">+49 Germany</option>
+                <option value="+233 Ghana">+233 Ghana</option>
+                <option value="+30 Greece">+30 Greece</option>
+                <option value="+852 Hong Kong">+852 Hong Kong</option>
+                <option value="+36 Hungary">+36 Hungary</option>
+                <option value="+354 Iceland">+354 Iceland</option>
+                <option value="+62 Indonesia">+62 Indonesia</option>
+                <option value="+353 Ireland">+353 Ireland</option>
+                <option value="+972 Israel">+972 Israel</option>
+                <option value="+39 Italy">+39 Italy</option>
+                <option value="+81 Japan">+81 Japan</option>
+                <option value="+962 Jordan">+962 Jordan</option>
+                <option value="+7 Kazakhstan">+7 Kazakhstan</option>
+                <option value="+254 Kenya">+254 Kenya</option>
+                <option value="+965 Kuwait">+965 Kuwait</option>
+                <option value="+371 Latvia">+371 Latvia</option>
+                <option value="+961 Lebanon">+961 Lebanon</option>
+                <option value="+370 Lithuania">+370 Lithuania</option>
+                <option value="+352 Luxembourg">+352 Luxembourg</option>
+                <option value="+60 Malaysia">+60 Malaysia</option>
+                <option value="+960 Maldives">+960 Maldives</option>
+                <option value="+356 Malta">+356 Malta</option>
+                <option value="+52 Mexico">+52 Mexico</option>
+                <option value="+212 Morocco">+212 Morocco</option>
+                <option value="+977 Nepal">+977 Nepal</option>
+                <option value="+31 Netherlands">+31 Netherlands</option>
+                <option value="+64 New Zealand">+64 New Zealand</option>
+                <option value="+234 Nigeria">+234 Nigeria</option>
+                <option value="+47 Norway">+47 Norway</option>
+                <option value="+968 Oman">+968 Oman</option>
+                <option value="+92 Pakistan">+92 Pakistan</option>
+                <option value="+51 Peru">+51 Peru</option>
+                <option value="+63 Philippines">+63 Philippines</option>
+                <option value="+48 Poland">+48 Poland</option>
+                <option value="+351 Portugal">+351 Portugal</option>
+                <option value="+974 Qatar">+974 Qatar</option>
+                <option value="+40 Romania">+40 Romania</option>
+                <option value="+966 Saudi Arabia">+966 Saudi Arabia</option>
+                <option value="+65 Singapore">+65 Singapore</option>
+                <option value="+421 Slovakia">+421 Slovakia</option>
+                <option value="+386 Slovenia">+386 Slovenia</option>
+                <option value="+27 South Africa">+27 South Africa</option>
+                <option value="+82 South Korea">+82 South Korea</option>
+                <option value="+34 Spain">+34 Spain</option>
+                <option value="+94 Sri Lanka">+94 Sri Lanka</option>
+                <option value="+41 Switzerland">+41 Switzerland</option>
+                <option value="+886 Taiwan">+886 Taiwan</option>
+                <option value="+66 Thailand">+66 Thailand</option>
+                <option value="+90 Turkey">+90 Turkey</option>
+                <option value="+380 Ukraine">+380 Ukraine</option>
+                <option value="+598 Uruguay">+598 Uruguay</option>
+                <option value="+84 Vietnam">+84 Vietnam</option>
+            </select>
+
+            <input type="tel" name="phone" placeholder="Phone Number" required />
+          </div>
+
+          <input type="hidden" name="comment" value="brain-trade-nyborjare" />
+          <input type="hidden" name="city" value="" />
+          <input type="hidden" name="postalCode" value="" />
+          <input type="hidden" name="consent" value="Yes" />
+          <input class="hidden-field" type="text" name="website" tabindex="-1" autocomplete="off" />
+
+          <button class="primary-btn submit" type="submit">Ladda ner gratis guiden</button>
+
+          <p class="success" id="successMessage">Tack! Din information har skickats.</p>
+          <p class="error" id="errorMessage">Något gick fel. Försök igen.</p>
+        </form>
       </div>
-
-      <label>
-        E-mail address
-        <input type="email" name="email" placeholder="name@example.com" required />
-      </label>
-
-      <div class="form-row">
-        <label>
-          Country Code
-          <select name="countryCode">
-            <option value="+46 Sverige">+46 Sverige</option>
-            <option value="+1 United States">+1 United States</option>
-            <option value="+44 United Kingdom">+44 United Kingdom</option>
-            <option value="+971 UAE">+971 UAE</option>
-            <option value="+91 India">+91 India</option>
-          </select>
-        </label>
-
-        <label>
-          Phone Number
-          <input type="tel" name="phone" placeholder="Phone Number" required />
-        </label>
-      </div>
-
-      <div class="form-row">
-        <label>
-          City
-          <input type="text" name="city" placeholder="City" />
-        </label>
-
-        <label>
-          Postal Code
-          <input type="text" name="postalCode" placeholder="Postal Code" />
-        </label>
-      </div>
-
-      <input type="hidden" name="comment" value="nyborjare" />
-
-      <label class="checkbox-label">
-        <input type="checkbox" name="consent" value="Yes" required />
-        I agree to be contacted about the guide.
-      </label>
-
-      <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" />
-
-      <button class="cta submit" type="submit">
-        Ladda ner gratis guiden
-      </button>
-
-      <p class="fine-print">
-        Genom att skicka formuläret godkänner du att bli kontaktad om guiden.
-      </p>
-
-      <p class="success-message" id="successMessage">
-        Tack! Din information har skickats.
-      </p>
-
-      <p class="error-message" id="errorMessage">
-        Något gick fel. Försök igen.
-      </p>
-    </form>
-  </div>
-</section>
-```
-
+    </section>
   </main>
 
   <footer>
     <p>©2026 All rights reserved.</p>
   </footer>
 
-  <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOEMtndXzP2l4X_zCfzv-_1iMli2zTvAj-kLyplJ2YCtvt7d-pnecqvmwkC9wTa-8x/exec";
-
-    const leadForm = document.getElementById("leadForm");
-    const successMessage = document.getElementById("successMessage");
-    const errorMessage = document.getElementById("errorMessage");
-
-    leadForm.addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      successMessage.classList.remove("show");
-      errorMessage.classList.remove("show");
-
-      const formData = new FormData(leadForm);
-
-      if (formData.get("website")) {
-        return;
-      }
-
-      formData.append("pageUrl", window.location.href);
-      formData.append("userAgent", navigator.userAgent);
-      formData.append("source", "landing-page");
-
-      const button = leadForm.querySelector("button[type='submit']");
-      const originalButtonText = button.textContent;
-
-      button.disabled = true;
-      button.textContent = "Skickar...";
-
-      try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: formData
-        });
-
-        leadForm.reset();
-        successMessage.classList.add("show");
-      } catch (error) {
-        console.error(error);
-        errorMessage.classList.add("show");
-      } finally {
-        button.disabled = false;
-        button.textContent = originalButtonText;
-      }
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
