@@ -1,85 +1,52 @@
-// Braintrade Learning JavaScript
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOEMtndXzP2l4X_zCfzv-_1iMli2zTvAj-kLyplJ2YCtvt7d-pnecqvmwkC9wTa-8x/exec";
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('Braintrade Learning Platform Initialized');
-  initializeEventListeners();
-  loadContent();
-});
+const leadForm = document.getElementById("leadForm");
+const successMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
 
-// Initialize event listeners
-function initializeEventListeners() {
-  const buttons = document.querySelectorAll('.btn');
-  buttons.forEach(button => {
-    button.addEventListener('click', handleButtonClick);
+if (leadForm) {
+  leadForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    if (successMessage) successMessage.classList.remove("show");
+    if (errorMessage) errorMessage.classList.remove("show");
+
+    const formData = new FormData(leadForm);
+
+    // Hidden anti-spam field
+    if (formData.get("website")) {
+      return;
+    }
+
+    formData.append("pageUrl", window.location.href);
+    formData.append("userAgent", navigator.userAgent);
+    formData.append("source", "brain-trade-landing-page");
+
+    const button = leadForm.querySelector("button[type='submit']");
+    const originalText = button ? button.textContent : "";
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Skickar...";
+    }
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      });
+
+      leadForm.reset();
+      if (successMessage) successMessage.classList.add("show");
+    } catch (error) {
+      console.error(error);
+      if (errorMessage) errorMessage.classList.add("show");
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    }
   });
-
-  const featureCards = document.querySelectorAll('.feature-card');
-  featureCards.forEach(card => {
-    card.addEventListener('mouseenter', handleCardHover);
-  });
 }
-
-// Handle button clicks
-function handleButtonClick(e) {
-  console.log('Button clicked:', e.target.textContent);
-  // Add your button click logic here
-}
-
-// Handle card hover
-function handleCardHover(e) {
-  console.log('Card hovered:', e.target.querySelector('h3')?.textContent);
-}
-
-// Load content
-function loadContent() {
-  console.log('Content loaded successfully');
-  // Add your content loading logic here
-}
-
-// Utility function to fetch learning modules
-async function fetchLearningModules() {
-  try {
-    console.log('Fetching learning modules...');
-    // Add your API call here
-  } catch (error) {
-    console.error('Error fetching modules:', error);
-  }
-}
-
-// Utility function to save user progress
-function saveProgress(moduleId, progress) {
-  try {
-    localStorage.setItem(`braintrade_progress_${moduleId}`, JSON.stringify(progress));
-    console.log('Progress saved for module:', moduleId);
-  } catch (error) {
-    console.error('Error saving progress:', error);
-  }
-}
-
-// Utility function to load user progress
-function loadProgress(moduleId) {
-  try {
-    const progress = localStorage.getItem(`braintrade_progress_${moduleId}`);
-    return progress ? JSON.parse(progress) : null;
-  } catch (error) {
-    console.error('Error loading progress:', error);
-    return null;
-  }
-}
-
-// Smooth scroll functionality
-function smoothScroll(target) {
-  const element = document.querySelector(target);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-// Export functions for external use
-window.braintrade = {
-  fetchLearningModules,
-  saveProgress,
-  loadProgress,
-  smoothScroll
-};
